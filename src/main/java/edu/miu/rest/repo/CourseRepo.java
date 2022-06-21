@@ -22,4 +22,8 @@ public class CourseRepo {
         return  courses;
     }
 
+    public void create(Course c){
+        courses.add(c);
+    }
+
 }

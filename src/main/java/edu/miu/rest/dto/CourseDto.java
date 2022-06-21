@@ -1,4 +1,4 @@
-package edu.miu.rest;
+package edu.miu.rest.dto;
 
 import edu.miu.rest.entity.Course;
 import lombok.Data;

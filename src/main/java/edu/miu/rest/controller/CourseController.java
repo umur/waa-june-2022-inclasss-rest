@@ -1,29 +1,49 @@
 package edu.miu.rest.controller;
 
-import edu.miu.rest.entity.Course;
-import edu.miu.rest.repo.CourseRepo;
-import lombok.AllArgsConstructor;
+import edu.miu.rest.dto.CourseDto;
+import edu.miu.rest.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequestMapping("/courses")
 public class CourseController {
 
-   private final CourseRepo courseRepo;
+    private final CourseService courseService;
 
-//   @Autowired // optional
-//   public CourseController(CourseRepo courseRepo){
-//       this.courseRepo=courseRepo;
-//   }
+   @Autowired // optional
+   public CourseController(CourseService courseService){
+       this.courseService=courseService;
+   }
 
-    @GetMapping("/courses")
-    public List<Course> findAllProducts(){
+   // http://localhost:8080/courses
+    @GetMapping
+    public List<CourseDto> findAllProducts() {
+        return courseService.findAll();
+    }
 
-        repo.findAll();
-        return null;
+    // http://localhost:8080/courses?age=20
+
+    @GetMapping("/search")
+    public List<CourseDto> getAllStudentsByAge(@RequestParam int age){
+
+       return nulll;
+    }
+
+    @PostMapping
+    public void create(@RequestBody CourseDto dto){
+
+    }
+
+    @PutMapping("/{id}")
+    public void update(@RequestBody CourseDto dto,
+                       @PathVariable int id){
+
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id){
+
     }
 }
